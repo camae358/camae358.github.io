@@ -1,0 +1,100 @@
+body {
+    background-color:black ;
+    }
+
+    @font-face {
+        font-family: 'Case';
+        src: url('Case-Regular.woff2') format('woff2'),
+            url('Case-Regular.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+                     
+.case {
+    font-family: "Case-Regular", serif;
+  }
+
+  h1 {
+    font-size: 64px;
+    color: #ffffff;
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    margin:0;
+    padding: 0;
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    bottom: 99%;
+    left: 50%;
+    transform: translateX(-50%);
+    letter-spacing: 20px;
+}
+
+
+
+
+.faith_3 {
+    width: 25em;
+    position: absolute;
+    top: 10em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.faith_6 {
+    width: 25em;
+    position: absolute;
+    top: 10em;
+    left: -60%;
+    transform: translateX(-50%);
+}
+
+.faith_12 {
+    width: 25em;
+    position: absolute;
+    top: 10em;
+    left: 160%;
+    transform: translateX(-50%);
+}
+
+.faith_5 {
+    width: 25em;
+    position: absolute;
+    top: 35em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.faith_13 {
+    width: 25em;
+    position: absolute;
+    top: 35em;
+    left: -60%;
+    transform: translateX(-50%);
+}
+
+.faith_14 {
+    width: 25em;
+    position: absolute;
+    top: 35em;
+    left: 160%;
+    transform: translateX(-50%);
+}
+
+.faith_15 {
+    width: 25em;
+    position: absolute;
+    top: 60em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.faith_16 {
+    width: 25em;
+    position: absolute;
+    top: 60em;
+    left: -60%;
+    transform: translateX(-50%);
+}
