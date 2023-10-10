@@ -9,6 +9,7 @@ body {
         font-weight: normal;
         font-style: normal;
         font-display: swap;
+    
     }
                      
 .case {
@@ -96,5 +97,13 @@ body {
     position: absolute;
     top: 60em;
     left: -60%;
+    transform: translateX(-50%);
+}
+
+.faith_10 {
+    width: 25em;
+    position: absolute;
+    top: 60em;
+    left: 160%;
     transform: translateX(-50%);
 }
