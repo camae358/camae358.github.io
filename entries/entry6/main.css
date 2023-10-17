@@ -8,11 +8,9 @@ body {
 
 
 
-/* If the browser window is smaller than 650px, the background color will change to black and the text to white: */
+/* test change*/
 @media (max-width: 650px) {
     body {
-      background-color: rgb(0, 0, 0);
-      color:  white;
       padding-left: 0em;
     }
      h1 {
@@ -76,6 +74,6 @@ h1 {
 
   }
 
-  .img {
-    max-width: 50%;
+img {
+    max-width: 80%;
   }
