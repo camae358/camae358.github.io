@@ -8,7 +8,6 @@ body {
 
 
 
-/* test change*/
 @media (max-width: 650px) {
     body {
       padding-left: 0em;
@@ -20,7 +19,6 @@ body {
   }
 
 
-/* The body's font-size is smaller by default */
 body {
     font-size: 16px;
   }
@@ -51,6 +49,10 @@ body {
 h1 {
     font-size: 64px;
     color: #ffffff;
+}
+
+p {
+  max-width: 80%;
 }
 
 .pill {
