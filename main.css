@@ -7,7 +7,7 @@
 
 li, a, button {
     font-family: "neue-haas-grotesk-display", sans-serif;
-    font-weight: 500;
+    font-weight: 300;
     font-size: 16px;
     text-decoration: none;
 }
@@ -58,4 +58,22 @@ button {
 
 button:hover {
     background-color: black;
+}
+
+h1 {
+color: white;
+font-family: "Gustavo";
+font-size: 6em;
+margin: 0;
+padding: 0;
+text-align: center;
+position: absolute;
+top: 30%;
+left: 50%;
+transform: translateX(-50%);
+background-color: transparent; /* Add this line to remove the black background */
+}
+
+.glitch {
+    width: 60%;
 }
