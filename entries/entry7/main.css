@@ -27,6 +27,8 @@ html * {
 #film {
     animation: filmSpin 30s ease-out infinite;
     height:200px;
+    background: none;
+    border: none;
   }
   
 
