@@ -1,11 +1,8 @@
-body {
-    cursor: none; /* Hide the default cursor */
-}
 html * {
     cursor: url("img/immortality_cursor1.png"), auto;
 }
  
- 
+
  h1 {
     font-size: 64px;
     color: #ffffff;
@@ -25,7 +22,7 @@ html * {
 
 
 #film {
-    animation: filmSpin 30s ease-out infinite;
+    animation: filmSpin 20s ease-out infinite;
     height:200px;
     background: none;
     border: none;
@@ -35,9 +32,16 @@ html * {
   @keyframes filmSpin {
     0% {
       transform: rotate(0turn);
+      opacity: 0%;
     }
+    
+    50% {
+        opacity: 100%;
+      }
+
     100% {
       transform: rotate(10turn);
+      opacity: 0%;
     }
   }
 
@@ -103,3 +107,28 @@ button {
 button:hover {
     background-color: black;
 }
+
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+  
+.flex-item {
+    text-align: left;
+}
+
+img {
+    max-width: 90%;
+    height: auto;
+    margin-top: 7em;
+  }
+
+svg {
+    width: 200px;
+    height: auto;
+    margin-top: 7em;
+    margin-right: 8em;
+  }
