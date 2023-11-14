@@ -1,0 +1,86 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: white;
+    color: blue;
+    transition: background-color 0.5s linear, color 0.5s linear;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+.image {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    height: auto;
+}
+
+.pill-button {
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+    color: blue;
+    padding: 10px 20px;
+    border: 2px solid blue;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 200px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    color: white;
+    background-color: blue
+}
+
+
+
+.layout2-content {
+    display: flex;
+    align-items: center;
+    width: 400px;
+    line-height: 2em;
+    justify-content: center;
+    flex-direction: column;
+    height: 50vh;
+    box-sizing: border-box;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.layout3-content {
+    display: flex;
+    align-items: center;
+    width: 400px;
+    line-height: 2em;
+    justify-content: center;
+    flex-direction: column;
+    height: 60vh;
+    box-sizing: border-box;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.layout1 {
+    background-color: white;
+    color: blue;
+}
+
+.layout2 {
+    background-color: blue;
+    color: white;
+}
+
+.layout3 {
+    background-color: green;
+    color: white;
+}
