@@ -23,7 +23,7 @@ function typeWriter(element, text) {
 }
 
 
-/* I used a mixture of stack extchange and ChatGPT to troubleshoot this section */
+/* I used a mixture of Stack Exchange and ChatGPT to troubleshoot this section */
 
 document.addEventListener('click', function () {
     if (!typingInProgress) {
