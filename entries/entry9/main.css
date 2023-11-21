@@ -45,6 +45,16 @@ body {
     line-height: 1.5;
 }
 
+.container3 {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.large-text {
+    font-size: 36px;
+    font-weight: bold;
+}
+
 /* Wobble Text Section */
 
 .wobble-container, .cascade-container {
