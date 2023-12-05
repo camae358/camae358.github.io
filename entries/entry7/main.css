@@ -11,10 +11,9 @@ body {
 html * {
     cursor: url("img/immortality_cursor1.png"), auto;
 }
- 
 
  h1 {
-    font-size: 64px;
+    font-size: 6vw;
     color: #ffffff;
     font-family: "neue-haas-grotesk-display", sans-serif;
     font-weight: 600;
@@ -30,7 +29,6 @@ html * {
     letter-spacing: 20px;
 }
 
-
 #film {
     animation: filmSpin 20s ease-out infinite;
     height:200px;
@@ -38,7 +36,6 @@ html * {
     border: none;
   }
   
-
   @keyframes filmSpin {
     0% {
       transform: rotate(0turn);
@@ -54,8 +51,6 @@ html * {
       opacity: 0%;
     }
   }
-
-
 
 .top-left-button,
 .top-right-button {
@@ -88,9 +83,6 @@ html * {
     color: rgb(255, 255, 255);
 }
 
-a:visited {
-    color: white
-  }
 
 button {
     color: white;
@@ -106,27 +98,38 @@ button:hover {
     background-color: black;
 }
 
-
 .flex-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-  
-.flex-item {
-    text-align: left;
+
+.image-container {
+  margin: 0 10px;
 }
 
 img {
-    max-width: 90%;
-    height: auto;
-    margin-top: 12em;
-  }
+  max-width: 50%;
+  height: auto;
+}
 
-svg {
-    width: 200px;
-    height: auto;
-    margin-top: 7em;
-    margin-right: 6em;
-  }
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+.svg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
