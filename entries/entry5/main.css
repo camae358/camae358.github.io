@@ -26,83 +26,28 @@ body {
     letter-spacing: 20px;
 }
 
-
-.faith_3 {
-    width: 25em;
-    position: absolute;
-    top: 10em;
-    left: 50%;
-    transform: translateX(-50%);
+.flex-container {
+    margin-top: 18em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.faith_6 {
-    width: 25em;
-    position: absolute;
-    top: 10em;
-    left: -60%;
-    transform: translateX(-50%);
-}
-
-.faith_12 {
-    width: 25em;
-    position: absolute;
-    top: 10em;
-    left: 160%;
-    transform: translateX(-50%);
-}
-
-.faith_5 {
-    width: 25em;
-    position: absolute;
-    top: 35em;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.faith_13 {
-    width: 25em;
-    position: absolute;
-    top: 35em;
-    left: -60%;
-    transform: translateX(-50%);
-}
-
-.faith_14 {
-    width: 25em;
-    position: absolute;
-    top: 35em;
-    left: 160%;
-    transform: translateX(-50%);
-}
-
-.faith_15 {
-    width: 25em;
-    position: absolute;
-    top: 60em;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.faith_16 {
-    width: 25em;
-    position: absolute;
-    top: 60em;
-    left: -60%;
-    transform: translateX(-50%);
-}
-
+.faith_3,
+.faith_6,
+.faith_12,
+.faith_5,
+.faith_13,
+.faith_14,
+.faith_15,
+.faith_16,
 .faith_10 {
     width: 25em;
-    position: absolute;
-    top: 60em;
-    left: 160%;
-    transform: translateX(-50%);
-    padding-bottom: 100px;
+    margin: 10px;
 }
 
-a:visited {
-    color: white
-  }
 
 button {
     color: white;
