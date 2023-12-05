@@ -37,6 +37,8 @@ document.addEventListener('click', function (event) {
     displayNextText(event.clientX, event.clientY);
 });
 
+/* I used Stack Exchange and ChatGPT to troubleshoot this section. */
+
 function displayNextText(x, y) {
     currentText = (currentText + 1) % text.length;
 
