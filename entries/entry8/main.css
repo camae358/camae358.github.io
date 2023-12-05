@@ -9,17 +9,44 @@ body {
     transition: background-color 0.5s linear, color 0.5s linear;
 }
 
-.container {
-    text-align: center;
-    position: relative;
+.top-left-button,
+.top-right-button {
+    position: fixed;
+    top: 10px;
+    padding: 10px;
+    color: blue;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.top-left-button {
+    left: 10px;
+}
+
+.top-right-button {
+    right: 10px;
+}
+
+.top-left-button:hover { 
+    color: black;
+}
+
+.top-right-button:hover { 
+    color: black;
 }
 
 .image {
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 100%;
+    width: 10em;
+    max-width: 70%;
     height: auto;
 }
 
@@ -32,7 +59,7 @@ body {
     border-radius: 20px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 200px;
+    margin-top: 100px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
@@ -84,3 +111,5 @@ button:hover {
     background-color: green;
     color: white;
 }
+
+

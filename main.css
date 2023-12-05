@@ -71,7 +71,7 @@ position: absolute;
 top: 30%;
 left: 50%;
 transform: translateX(-50%);
-background-color: transparent; /* Add this line to remove the black background */
+background-color: transparent; /*removes black background */
 }
 
 .glitch {

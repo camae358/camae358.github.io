@@ -1,39 +1,72 @@
 body {
-    background-color:black ;
-    }
+    background-color: black;
+    margin: 0; 
+}
 
-    @font-face {
-        font-family: 'Case';
-        src: url('Case-Regular.woff2') format('woff2'),
-            url('Case-Regular.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-    }
-                     
+@font-face {
+    font-family: 'Case';
+    src: url('Case-Regular.woff2') format('woff2'),
+        url('Case-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 .case {
     font-family: "Case-Regular", serif;
-  }
+}
 
-  h1 {
+.top-left-button,
+.top-right-button {
+    position: fixed;
+    padding: 10px;
+    color: blue;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    z-index: 1;
+}
+
+.top-left-button {
+    left: 10px;
+    top: 10px;
+}
+
+.top-right-button {
+    right: 10px;
+    top: 10px;
+}
+
+.top-left-button:hover {
+    color: rgb(255, 255, 255);
+}
+
+.top-right-button:hover {
+    color: rgb(255, 255, 255);
+}
+
+h1 {
     font-size: 64px;
     color: #ffffff;
     font-family: "neue-haas-grotesk-display", sans-serif;
     font-weight: 600;
     font-style: normal;
-    margin:0;
+    margin: 0;
     padding: 0;
     text-align: center;
     position: absolute;
     top: 10%;
-    bottom: 99%;
     left: 50%;
     transform: translateX(-50%);
     letter-spacing: 20px;
 }
 
 p {
-    font-size: 14px;
+    font-size: 2vw;
     color: #000FB0;
     font-family: "Case-Regular", serif;
     font-weight: 400;
@@ -48,100 +81,17 @@ p {
     letter-spacing: 25px;
 }
 
-p1 {
-    font-size: 14px;
-    color: #000FB0;
-    font-family: "Case-Regular", serif;
-    font-weight: 400;
-    font-style: normal;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    letter-spacing: 25px;
-}
-
-
-p2 {
-    font-size: 14px;
-    color: #000FB0;
-    font-family: "Case-Regular", serif;
-    font-weight: 400;
-    font-style: normal;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translateX(-50%);
-    letter-spacing: 25px;
-}
-
-
-p3 {
-    font-size: 14px;
-    color: #000FB0;
-    font-family: "Case-Regular", serif;
-    font-weight: 400;
-    font-style: normal;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translateX(-50%);
-    letter-spacing: 25px;
-}
-
-
-p4 {
-    font-size: 14px;
-    color: #ffffff;
-    font-family: "Case-Regular", serif;
-    font-weight: 400;
-    font-style: normal;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translateX(-50%);
-    letter-spacing: 25px;
-}
-
-
-p5 {
-    font-size: 14px;
-    color: #000FB0;
-    font-family: "Case-Regular", serif;
-    font-weight: 400;
-    font-style: normal;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    position: absolute;
-    top: 98%;
-    left: 50%;
-    transform: translateX(-50%);
-    letter-spacing: 25px;
-}
-
-
 .vegas {
-width: 100%;
-position: absolute;
-top: 0px;
-left: 50%;
-transform: translateX(-50%);
-letter-spacing: 25px;
-
+    width: 2000px;
+    height: auto;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    letter-spacing: 25px;
+    z-index: 0;
 }
+
 
 a {
     font-size: 14px;
@@ -153,7 +103,4 @@ a {
     padding: 0;
     text-align: center;
     position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translateX(-50%);
 }
