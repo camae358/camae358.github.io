@@ -64,31 +64,36 @@ h1 {
 }
 
 .flex-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding-left: 25em;
-}
-  
-.flex-item {
-    text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 30px;
 }
 
+.flex-item {
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+}
 
 img {
-    max-width: 45em;
-    height: auto;
-    margin-top: 5em;
-  }
-
-
-h2 {
-    font-size: 5em;
-    width: 70%;
-    margin-bottom: 20px;
+  max-width: 100%;
+  height: auto;
+  margin-top: 2em;
 }
 
+h2 {
+  font-size: 2em;
+  text-align: center;
+}
+
+p {
+  font-size: 1em;
+  width: 100%;
+  margin-bottom: 2em;
+  text-align: left;
+}
 
 .pill-link {
     display: inline-block;
@@ -104,67 +109,5 @@ h2 {
   .pill-link:hover {
     background-color: rgb(77, 58, 248);
   }
-  
-p {
-    font-size: 16px;
-    width: 70%;
-    margin-bottom: 8em
-}
 
 
-
-a:visited {
-    color: white
-  }
-
-button {
-    color: white;
-    padding: 9px 25px;
-    background-color: blue;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-}
-
-button:hover {
-    background-color: black;
-}
-
-
-@media (max-width: 650px) {
-    body {
-      padding-left: 0em;
-    }
-     h1 {
-        font-size: 30px;
-        color: #ffffff;
-    }
-  }
-  
-  body {
-    font-size: 16px;
-  }
-  
-  /* tablet */
-  @media (min-width: 768px) {
-    body {
-      font-size: 16px;
-    }
-  }
-  
-  /* desktop */
-  @media (min-width: 992px) {
-    body {
-      font-size: 16px;
-    }
-  }
-  
-  /* wide-screen */
-  @media (min-width: 1200px) {
-    body {
-      font-size: 16px;
-      padding-left: 4em;
-    }
-  }
-  
