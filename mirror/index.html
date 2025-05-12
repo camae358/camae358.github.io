@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>mirror</title>
+  <style>
+    @font-face {
+      font-family: 'Galapagos';
+      src: url('fonts/ABCGalapagosABC-Regular.woff2') format('woff2'),
+           url('fonts/ABCGalapagosABC-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .square-container {
+      display: flex;
+      align-items: center;
+      gap: 106px;
+      justify-content: center;
+      transform: scale(1.5) translate(-50%, -50%);
+      transform-origin: top left;
+      position: relative;
+      top: 20%;
+      left: 24%;
+    }
+
+    .square {
+      width: 320px;
+      height: 400px;
+      background-color: white;
+      position: relative;
+    }
+
+    #greySquare2 {
+      transform: scaleX(-1);
+    }
+
+    .small-square {
+      width: 53.3333px;
+      height: 80px;
+      background-color: rgba(255, 255, 255, 0);
+      position: absolute;
+      transition: top 0.3s ease, left 0.3s ease, transform 0.3s ease;
+      color: rgb(0, 0, 0);
+      font-size: 80px;
+      font-family: 'Galapagos', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+      text-transform: lowercase;
+      margin-top: 10px;
+    }
+
+    .controls {
+      position: absolute;
+      bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100px;
+      height: 3px;
+      background: black;
+      border-radius: 3px;
+      outline: none;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 12px;
+      height: 12px;
+      background: black;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: black;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    label {
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+    }
+
+    .button {
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      padding: 8px 16px;
+      background-color: white;
+      color: black;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .button:hover {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="square-container">
+    <div class="square" id="greySquare1"></div>
+    <div class="square" id="greySquare2"></div>
+  </div>
+
+  <div class="controls">
+    <input type="range" id="squareSlider" class="slider" min="0" max="24" value="10">
+    <label for="squareSlider">char: <span id="squareCount">10</span></label>
+
+    <input type="range" id="speedSlider" class="slider" min="700" max="1300" value="1000" step="100">
+    <label for="speedSlider">speed: <span id="speedValue">1000</span></label>
+
+    <input type="range" id="densitySlider" class="slider" min="5" max="10" value="5">
+    <label for="densitySlider">density <span id="densityValue"></span></label>
+
+    <button class="button" id="pauseButton">pause</button>
+    <button class="button" id="rotateButton">rotate</button>
+    <button class="button" id="reflectButton">reflect</button>
+    <a href="/Users/ecamarillo/Documents/GitHub/tool/index.html">
+      <button class="button">switch mode</button>
+    </a>
+  </div>
+
+  <script>
+    const greySquare1 = document.getElementById('greySquare1');
+    const greySquare2 = document.getElementById('greySquare2');
+    const squareSlider = document.getElementById('squareSlider');
+    const squareCountLabel = document.getElementById('squareCount');
+    const rotateButton = document.getElementById('rotateButton');
+    const reflectButton = document.getElementById('reflectButton');
+    const pauseButton = document.getElementById('pauseButton');
+    const speedSlider = document.getElementById('speedSlider');
+    const speedValue = document.getElementById('speedValue');
+    const densitySlider = document.getElementById('densitySlider');
+    const densityValue = document.getElementById('densityValue');
+
+    const unitWidth = 53.3333;
+    const unitHeight = 80;
+
+    let totalSquares = 10;
+    let squares1 = [];
+    let squares2 = [];
+    let positions = [];
+    let isPaused = false;
+    let density = 5;
+    let maxSpots = 0;
+    const letters = "abcdefghijlnopqrsxyz123456789$%^&*_+{}[]";
+
+    function updateAvailableSpots() {
+      const maxX = greySquare1.offsetWidth - unitWidth;
+      const maxY = greySquare1.offsetHeight - unitHeight;
+
+      maxSpots = Math.floor((maxX / unitWidth) * (maxY / unitHeight) * (density / 10));
+    }
+
+    function createSquares(num) {
+      squares1.forEach(sq => greySquare1.removeChild(sq));
+      squares2.forEach(sq => greySquare2.removeChild(sq));
+      squares1 = [];
+      squares2 = [];
+      positions = [];
+
+      updateAvailableSpots();
+
+
+      const squaresToCreate = Math.min(num, maxSpots);
+      totalSquares = squaresToCreate;
+      const maxX = greySquare1.offsetWidth - unitWidth;
+      const maxY = greySquare1.offsetHeight - unitHeight;
+
+      for (let i = 0; i < squaresToCreate; i++) {
+        const letter = letters[Math.floor(Math.random() * letters.length)];
+
+        const square1 = document.createElement('div');
+        square1.classList.add('small-square');
+        square1.textContent = letter;
+        greySquare1.appendChild(square1);
+        squares1.push(square1);
+
+        const square2 = document.createElement('div');
+        square2.classList.add('small-square');
+        square2.textContent = letter;
+        greySquare2.appendChild(square2);
+        squares2.push(square2);
+
+        let randomX, randomY, tries = 0;
+        let collision;
+        do {
+          randomX = Math.floor(Math.random() * (maxX / unitWidth)) * unitWidth;
+          randomY = Math.floor(Math.random() * (maxY / unitHeight)) * unitHeight;
+          collision = positions.some(p => p.x === randomX && p.y === randomY);
+          tries++;
+          if (tries > 100) break; 
+        } while (collision);
+
+        square1.style.left = `${randomX}px`;
+        square1.style.top = `${randomY}px`;
+        square2.style.left = `${randomX}px`;
+        square2.style.top = `${randomY}px`;
+
+        positions.push({ x: randomX, y: randomY });
+      }
+
+      squareCountLabel.textContent = totalSquares;
+    }
+
+    function checkCollision(newX, newY, excludeIndex = -1) {
+      for (let i = 0; i < totalSquares; i++) {
+        if (i !== excludeIndex) {
+          const pos = positions[i];
+          if (
+            newX < pos.x + unitWidth &&
+            newX + unitWidth > pos.x &&
+            newY < pos.y + unitHeight &&
+            newY + unitHeight > pos.y
+          ) {
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+
+    function moveSquare() {
+      if (isPaused) return;
+
+      squares1.forEach((square, index) => {
+        const direction = Math.floor(Math.random() * 4);
+        let posX = positions[index].x;
+        let posY = positions[index].y;
+
+        let newPosX = posX;
+        let newPosY = posY;
+
+        switch (direction) {
+          case 0: if (posY > 0) newPosY -= unitHeight; break;
+          case 1: if (posY < greySquare1.offsetHeight - unitHeight) newPosY += unitHeight; break;
+          case 2: if (posX > 0) newPosX -= unitWidth; break;
+          case 3: if (posX < greySquare1.offsetWidth - unitWidth) newPosX += unitWidth; break;
+        }
+
+        if (!checkCollision(newPosX, newPosY, index)) {
+          square.style.top = `${newPosY}px`;
+          square.style.left = `${newPosX}px`;
+          squares2[index].style.top = `${newPosY}px`;
+          squares2[index].style.left = `${newPosX}px`;
+
+          positions[index] = { x: newPosX, y: newPosY };
+        }
+      });
+    }
+
+    function rotateSquares() {
+      const numToRotate = Math.floor(Math.random() * totalSquares);
+      const rotateCount = numToRotate > 0 ? numToRotate : 1;
+
+      for (let i = 0; i < rotateCount; i++) {
+        const index = Math.floor(Math.random() * totalSquares);
+        const square1 = squares1[index];
+        const square2 = squares2[index];
+
+        square1.style.transform = `rotate(180deg)`;
+        square2.style.transform = `rotate(180deg)`;
+      }
+    }
+
+    function reflectSquare() {
+      const index = Math.floor(Math.random() * totalSquares);
+      const square1 = squares1[index];
+      const square2 = squares2[index];
+
+      square1.style.transform = `scaleX(-1)`;
+      square2.style.transform = `scaleX(-1)`;
+    }
+
+    squareSlider.addEventListener('input', (e) => {
+      totalSquares = parseInt(e.target.value, 10);
+      squareCountLabel.textContent = totalSquares;
+      createSquares(totalSquares);
+    });
+
+    rotateButton.addEventListener('click', rotateSquares);
+    reflectButton.addEventListener('click', reflectSquare);
+
+    pauseButton.addEventListener('click', () => {
+      isPaused = !isPaused;
+      pauseButton.textContent = isPaused ? 'resume' : 'pause';
+    });
+
+    speedSlider.addEventListener('input', (e) => {
+      moveInterval = parseInt(e.target.value, 10);
+      speedValue.textContent = moveInterval;
+      clearInterval(intervalId);
+      intervalId = setInterval(moveSquare, moveInterval);
+    });
+
+    densitySlider.addEventListener('input', (e) => {
+      density = parseInt(e.target.value, 10);
+      densityValue.textContent = density;
+      createSquares(totalSquares);
+    });
+
+    createSquares(totalSquares);
+    let moveInterval = parseInt(speedSlider.value, 10);
+    let intervalId = setInterval(moveSquare, moveInterval);
+  </script>
+</body>
+</html>
